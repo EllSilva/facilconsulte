@@ -1,0 +1,172 @@
+@font-face {
+    font-family: Barrio;
+    src: url(../fontes/Comfortaa-Bold.ttf)
+  }
+  
+  @font-face {
+    font-family: BarrioSUb;
+    src: url(../fontes/OpenSans-Bold.ttf)
+  }
+
+  @font-face {
+    font-family: BarrioText;
+    src: url(../fontes/OpenSans-Medium.ttf)
+  }
+
+.fundo{
+    background-color: #FFE766;
+    width: 100%;
+    height: 100%;
+    
+    padding: 0% 10% 10% 10% ;
+}
+
+.jms-icon{ 
+  padding: 5% 0% 5% 0% ;
+}
+
+.img{ 
+    width: 100%; 
+}
+
+.img2{  
+    padding-top: 8%;
+    width: 100%; 
+}
+
+.tela{
+    max-width: 100%;
+    background-color: white ;
+    border-radius: 30px;
+    padding: 3rem 0rem 1rem 5rem ;
+    
+}
+
+.titulo{ 
+    color: #483695; 
+    font-size: 49;
+    font-family: Barrio;
+}
+
+.subTitulo{  
+    font-size: 49;
+    margin-top: 5px;
+    font-family: BarrioSub;
+}
+
+.card-title{   
+  font-family: BarrioSub;
+}
+
+.card-text{   
+  font-family: BarrioText;
+}
+
+.bg_jms{ 
+    background-color: #483695;  
+    color: #fff;
+}
+
+.btn_jms{ 
+    background-color: #483695;  
+    width: 100%;
+    color: #fff;
+    border-radius: 25px;
+    padding: 8px;
+    font-family: Barrio;
+}
+
+.btn_jms2{ 
+  background-color: #FBDE40; 
+  width: 100%;
+  color: #fff;
+  border-radius: 25px;
+  padding: 8px;
+  font-family: Barrio;
+  
+}
+
+.btn_jms3{   
+  width: 100%;
+  color: #483695;
+  border-radius: 25px;
+  padding: 8px;
+  font-family: Barrio;
+  
+}
+
+.btn_jms4{    
+  color: #483695;
+  border-radius: 25px;
+  padding: 8px;
+  font-family: Barrio;
+  
+}
+
+.imput{ 
+    border-color: #483695; 
+}
+
+.topxx{ 
+    padding-top: 38px;
+}
+
+.pagar{ 
+  width: 100%;
+  padding: 10px 10px 10px 40px ;
+  background-color: #f9f9f9;  
+}
+
+.pagarTipo{  
+    padding-left: 30px ;
+  }
+  
+  .parcela{ 
+    width: 100%;
+    padding: 10px 10px 10px 80px ;
+    background-color: #f9f9f9;   
+  }
+
+  .parcelaTipo{  
+    padding-left: 10px ;
+  }
+
+  .p{
+    color: #DC3545;  
+  }
+
+  li {
+    list-style-type: none;
+    margin-right: -10px ;
+  
+  }
+
+
+  @media screen and (min-width: 260px) and (max-width: 1201px) {
+    .show {
+        width: 50px !important;
+    }
+
+    .fundo{ 
+      padding: 0% 0% 0% 0% ;
+  }
+  
+  .tela{ 
+    border-radius: 30px;
+    padding: 3rem 0rem 1rem 0rem ;
+    
+}
+  .jms-icon{ 
+    padding: 7% 0% 7% 10% ;
+  }
+
+    .show {
+        visibility: hidden;
+    }
+ 
+    .topxx{ 
+      padding-top: 38px;
+  }
+  
+
+}
