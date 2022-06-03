@@ -11,7 +11,8 @@
         </div>
 
         <div class="mb-3">
-            <form method="post" novalidate="true"></form>
+            <form @submit="profisional" method="post" novalidate="true"> 
+                 
             <div class="row g-0">
 
                 <div class="col-md-6">
@@ -30,19 +31,19 @@
 
                         <div class="mb-4 col-sm-8">
                             <label for="cpfx" class="form-label">CPF</label>
-                            <input type="text" class="form-control imput" v-model="cpf" id="cpfx" @blur="validacpf"
-                                placeholder="Digite um CPF">
+                            <input type="text" class="form-control imput" v-model="cpf" id="cpfx" @input="maskTel"
+                             @blur="validacpf" placeholder="Digite um CPF">
                                 <p v-if="erro_cpf.length"> 
                                     <div>
                                         <div class="p" v-for="error in erro_cpf">{{ error }}</div>
                                     </div>
                                     </p>
-                                    <p> {{ erro_cpf2 }}</p>
+                                    <p class="p"> {{ erro_cpf2 }}</p>
                         </div>
 
                         <div class="mb-4 col-sm-8">
                             <label for="exampleFormControlInput1" class="form-label">Numero de celular</label>
-                            <input type="number" class="form-control imput" v-model="telefone" 
+                            <input type="number" class="form-control imput" v-model="telefone" @input="maskTel" 
                                 id="exampleFormControlInput1" placeholder="(00) 0 0000-0000">
                                
                                 <p v-if="erro_tell.length"> 
@@ -101,14 +102,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-2 ">
+                            <div class="col-12 col-sm-2    ">
                                 <div class="mb-3 titulo">
                                     1 de 2
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <a @click="profisional()" class="btn btn_jms mb-3">PROXIMO</a>
+                        <div> 
+                            <input class="btn btn_jms mb-3" type="submit" @click="" value="PROXIMO">
                         </div>
                     </div>
                 </div>

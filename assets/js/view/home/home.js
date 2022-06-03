@@ -146,6 +146,25 @@ export default {
                 )
         },
 
+         maskTel() {
+            let mascara = this.telefone
+            mascara = mascara.replace(/\D/gi, '')
+            mascara = mascara.replace(/(\d{2})(.*)/gi, '($1) $2')
+            mascara = mascara.replace(/\((\d{2})\)\s(\d{1})(.*)/gi, '($1) $2 $3')
+            mascara = mascara.replace(/\((\d{2})\)\s(\d{1})\s(\d{4})(.*)/gi, '($1) $2 $3-$4')
+            mascara = mascara.replace(/\((\d{2})\)\s(\d{1})\s(\d{4})-(\d{4})(.*)/gi, '($1) $2 $3-$4')
+            this.telefone = mascara
+        },
+        
+         cpf(mascara) {
+            // 000.000.000-00
+            mascara = mascara.replace(/(\d{3})(.*)/gi, '$1.$2')
+            mascara = mascara.replace(/(\d{3})\.(\d{3})(.*)/gi, '$1.$2.$3')
+            mascara = mascara.replace(/(\d{3})\.(\d{3})\.(\d{3})(.*)/gi, '$1.$2.$3-$4')
+            mascara = mascara.replace(/(\d{3})\.(\d{3})\.(\d{3})\-(\d{2})(.*)/gi, '$1.$2.$3-$4')
+        
+            return mascara
+        }
     },
 
     async mounted() {
