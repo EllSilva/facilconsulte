@@ -41,10 +41,11 @@ export default {
 
           this.especialidade  = globalThis.especialidade,
         this.valor = globalThis.valor  ,
-         this.pagamento = globalThis.pagamento ,
+        this.pagamento = globalThis.pagamento.join() ,
+         // this.pagamento = localStorage.getItem("pagamento").split(/[".,!,?,;,..."]/);
          this.parcela = globalThis.parcela
 		 
 	},
-
+    
     template: await get_template('./assets/js/view/finalizar/home')
 }

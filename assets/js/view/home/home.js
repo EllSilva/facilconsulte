@@ -7,8 +7,8 @@ export default {
             cpf: null,
             telefone: null,
             estado: "",
-            cidade: null,
-            xx: null,
+            selet_estado: "",
+            cidade: null, 
             todos_estado: [],
             todos_cidade: [],
 
@@ -21,14 +21,24 @@ export default {
             erro: [],
             jms: false,
 
+
+
         }
     },
 
     methods: {
 
-        onChange: function () {
+        escolher(elementos) {
+            let nomesCertos = []
+
+            this.todos_estado.filter(elemento => {
+                if (elementos == elemento.id) {
+                    nomesCertos.push(elemento.nome);
+                    this.estado = elemento.nome
+                }
+            })
+
             this.cidades()
-            this.cidadesSelect()
         },
 
         async profisional(e) {
@@ -53,7 +63,7 @@ export default {
                 this.erro_tell.push('O telefone é obrigatório.');
                 this.erro.push('erro');
             }
-            if (!this.estado) {
+            if (!this.selet_estado) {
                 this.erro_estado.push('O estado é obrigatório.');
                 this.erro.push('erro');
             }
@@ -87,21 +97,6 @@ export default {
 
                     if (response.data) {
                         this.todos_estado = response.data
-                        console.log(this.todos_estado)
-                    }
-                }
-                )
-                .catch(error =>
-                    error
-                )
-        },
-
-        cidadesSelect() {
-            axios.get(`https://api-teste-front-end-fc.herokuapp.com/estados?id=2`)
-                .then(response => {
-
-                    if (response.data) {
-                        this.xx = (response.data).nome
 
                     }
                 }
@@ -110,9 +105,10 @@ export default {
                     error
                 )
         },
+ 
 
         cidades() {
-            axios.get(`https://api-teste-front-end-fc.herokuapp.com/cidades?estadoId=` + this.estado)
+            axios.get(`https://api-teste-front-end-fc.herokuapp.com/cidades?estadoId=` + this.selet_estado)
                 .then(response => {
 
                     if (response.data) {
@@ -127,27 +123,32 @@ export default {
         },
 
         validacpf() {
-            axios.get(`https://api-teste-front-end-fc.herokuapp.com/profissionais?cpf=` + this.cpf)
+           var verCpf = this.cpf.replace(/[^\d]+/g, '')
+
+            axios.get(`https://api-teste-front-end-fc.herokuapp.com/profissionais?cpf=` + verCpf)
                 .then(response => {
 
                     let config = response.data
+                    this.erro_cpf2 = ""
                     for (var i = 0; i < config.length; i++) {
-
+                   
                         var cpfTexte = config[i].cpf
-                        if (cpfTexte === this.cpf) {
+                       
+                        if (cpfTexte === verCpf) { 
                             this.erro_cpf2 = "CPF já cadastrado"
-                        }
-
+                        }  
+                       
                     }
                 }
                 )
-                .catch(error =>
+                .catch(error => 
                     error
                 )
         },
 
-         maskTel() {
+        maskTel() {
             let mascara = this.telefone
+
             mascara = mascara.replace(/\D/gi, '')
             mascara = mascara.replace(/(\d{2})(.*)/gi, '($1) $2')
             mascara = mascara.replace(/\((\d{2})\)\s(\d{1})(.*)/gi, '($1) $2 $3')
@@ -155,14 +156,14 @@ export default {
             mascara = mascara.replace(/\((\d{2})\)\s(\d{1})\s(\d{4})-(\d{4})(.*)/gi, '($1) $2 $3-$4')
             this.telefone = mascara
         },
-        
-         cpf(mascara) {
+
+        cpf(mascara) {
             // 000.000.000-00
             mascara = mascara.replace(/(\d{3})(.*)/gi, '$1.$2')
             mascara = mascara.replace(/(\d{3})\.(\d{3})(.*)/gi, '$1.$2.$3')
             mascara = mascara.replace(/(\d{3})\.(\d{3})\.(\d{3})(.*)/gi, '$1.$2.$3-$4')
             mascara = mascara.replace(/(\d{3})\.(\d{3})\.(\d{3})\-(\d{2})(.*)/gi, '$1.$2.$3-$4')
-        
+
             return mascara
         }
     },
@@ -175,6 +176,7 @@ export default {
             this.telefone = globalThis.telefone,
             this.estado = globalThis.estado || '',
             this.cidade = globalThis.cidade || ''
+
 
     },
 

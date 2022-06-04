@@ -2,7 +2,7 @@ import Vue from './vendor/vue.js'
 import Router from './vendor/vue-router.js'
 
 import get_template from './components/get_template.js'
-
+Vue.use(VueMask.VueMaskPlugin);
 
 import page_home from './view/home/home.js'
 Vue.component('p-home', page_home)

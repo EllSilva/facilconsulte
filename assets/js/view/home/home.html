@@ -31,7 +31,7 @@
 
                         <div class="mb-4 col-sm-8">
                             <label for="cpfx" class="form-label">CPF</label>
-                            <input type="text" class="form-control imput" v-model="cpf" id="cpfx" @input="maskTel"
+                            <input type="text" class="form-control imput" v-model="cpf" id="cpfx" v-mask="'###.###.###-##'"
                              @blur="validacpf" placeholder="Digite um CPF">
                                 <p v-if="erro_cpf.length"> 
                                     <div>
@@ -43,7 +43,7 @@
 
                         <div class="mb-4 col-sm-8">
                             <label for="exampleFormControlInput1" class="form-label">Numero de celular</label>
-                            <input type="number" class="form-control imput" v-model="telefone" @input="maskTel" 
+                            <input type="text" class="form-control imput" v-model="telefone" v-mask="'(##) # ####-####,'"
                                 id="exampleFormControlInput1" placeholder="(00) 0 0000-0000">
                                
                                 <p v-if="erro_tell.length"> 
@@ -58,13 +58,14 @@
                             <div class="col-6 col-sm-6">
                                 <div class="mb-4">
                                     <label for="est" class="form-label">Estado</label>
-                                    <select class="form-select imput" v-model="estado" v-on:change="onChange">
+                                    <select class="form-select imput" v-model="selet_estado" @change="escolher(event.target.value)">
                                         <option disabled value="" >Selecione</option>
                                         <option v-for="(option, index) in todos_estado" :value="option.id">
-                                            {{ option.nome }}
+                                            {{ option.nome }}   
                                           </option>
                                     </select>
-                                    
+                                     
+
                                 <p v-if="erro_estado.length"> 
                                     <div>
                                         <div class="p" v-for="error in erro_estado">{{ error }}</div>
@@ -97,8 +98,8 @@
                             <div class="col-12 col-sm-10 ">
                                 <div class="mb-3">
                                     <div class="progress">
-                                        <div class="progress-bar bg_jms" role="progressbar" style="width: 30%;"
-                                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg_jms" role="progressbar" style="width: 50%;"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>

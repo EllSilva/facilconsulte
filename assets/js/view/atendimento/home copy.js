@@ -19,7 +19,7 @@ export default {
 
             mostrar: false,
             checkedNames: []
-
+             
         }
     },
 
@@ -48,7 +48,7 @@ export default {
                 this.erro.push('erro');
             }
 
-            if (!this.valor) {
+            if (!this.valor) { 
                 this.erro_valor.push('O Valor é obrigatório.');
                 this.erro.push('erro');
             }
@@ -62,13 +62,11 @@ export default {
             }
 
 
-            if (!this.erro.length) {
+            if (!this.erro.length) { 
                 globalThis.especialidade = this.especialidade,
                     globalThis.valor = this.valor,
-                  globalThis.pagamento = this.pagamento, 
-                globalThis.parcela = this.parcela,
-
-
+                    globalThis.pagamento = this.pagamento,
+                    globalThis.parcela = this.parcela,
                     window.location.href = "#/finalizar"
                 return true;
             }
@@ -128,16 +126,13 @@ export default {
     async mounted() {
         this.especialidades()
 
-        this.especialidade = globalThis.especialidade || ''
-        if(globalThis.especialidade){
-            
+        this.especialidade = globalThis.especialidade || '',
             this.valor = globalThis.valor
-        this.pre_especialidade = globalThis.pagamento || []
-
-        var kim =  globalThis.pagamento
-       this.pagamento = kim.toString().split(/[.,!,?,;,...]/) 
-        }
-
+console.log(globalThis.pagamento)
+          this.pre_especialidade = globalThis.pagamento || []
+        this.pagamento = globalThis.pagamento.join()
+               this.pagamento = globalThis.pagamento.split(/[.,!,?,;,...]/)
+            
 
     },
 
