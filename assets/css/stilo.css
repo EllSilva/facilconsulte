@@ -84,11 +84,11 @@
 .btn_jms2{ 
   background-color: #FBDE40; 
   width: 100%;
-  color: #fff;
+  color: rgb(0, 0, 0);
   border-radius: 25px;
   padding: 8px;
   font-family: Barrio;
-  
+   
 }
 
 .btn_jms3{   
@@ -100,7 +100,8 @@
   
 }
 
-.btn_jms4{    
+.btn_jms4{  
+  background-color: #FBDE40;   
   color: #483695;
   border-radius: 25px;
   padding: 8px;
@@ -147,6 +148,13 @@
   
   }
 
+  .obrigado{
+    padding-right: 5%;
+  }
+
+  .obrigado2{
+    margin-bottom: 5%;
+  }
 
   @media screen and (min-width: 260px) and (max-width: 1201px) {
     .show {
@@ -174,5 +182,7 @@
       padding-top: 38px;
   }
   
-
+  .obrigado{
+    padding-right: 0%;
+  }
 }

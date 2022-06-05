@@ -34,7 +34,7 @@
 
                         </div>
 
-                        <div class="mb-4 col-sm-8">
+                        <div class="mb-4 col-9 col-sm-8">
                             <label for="cpfx" class="form-label">CPF*</label>
                             <input type="text" class="form-control imput" v-model="cpf" id="cpfx" v-mask="'###.###.###-##'"
                              @blur="validacpf" placeholder="Digite um CPF">
@@ -46,7 +46,7 @@
                                     <p class="p"> {{ erro_cpf2 }}</p>
                         </div>
 
-                        <div class="mb-4 col-sm-8">
+                        <div class="mb-4 col-9 col-sm-8">
                             <label for="exampleFormControlInput1" class="form-label">Numero de celular*</label>
                             <input type="text" class="form-control imput" v-model="telefone" v-mask="'(##) # ####-####'"
                                 id="exampleFormControlInput1" placeholder="(00) 0 0000-0000">

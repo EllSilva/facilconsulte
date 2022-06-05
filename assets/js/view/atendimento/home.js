@@ -7,7 +7,7 @@ export default {
             valor: null,
             pagamento: [],
             parcela: null,
-            todos_especialidade: [], 
+            todos_especialidade: [],
 
             erro_especialidade: [],
             erro_valor: [],
@@ -41,10 +41,13 @@ export default {
                 this.erro_pagamento.push('O pagamento é obrigatório.');
                 this.erro.push('erro');
             }
-           // if (!this.parcela) { 
-             //    this.erro_parcela.push('O parcelamento é obrigatório.');
-             //   this.erro.push('erro');
-           // }
+
+            if (this.pagamento == 'Cartão de crédeito') {
+                if (!this.parcela) {
+                    this.erro_parcela.push('O parcelamento é obrigatório.');
+                    this.erro.push('erro');
+                }
+            }
 
             if (!this.valor) {
                 this.erro_valor.push('O Valor é obrigatório.');
