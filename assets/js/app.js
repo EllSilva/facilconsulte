@@ -15,9 +15,7 @@ Vue.component('p-atendimento', page_atendimento)
 
 import page_jms from './view/jms/home.js'
 Vue.component('p-jms', page_jms)
-
-import page_mask from './view/mask/home.js'
-Vue.component('p-mask', page_mask)
+ 
 
 Vue.use(Router)
 
@@ -26,8 +24,7 @@ const routes = [
     { path: '/finalizar', component: { template: '<p-finalizar></p-finalizar>' } },
     { path: '/atendimento', component: { template: '<p-atendimento></p-atendimento>' } },
 
-    { path: '/jms', component: { template: '<p-jms></p-jms>' } }, 
-       { path: '/mask', component: { template: '<p-mask></p-mask>' } },
+    { path: '/jms', component: { template: '<p-jms></p-jms>' } },  
 ]
 
 

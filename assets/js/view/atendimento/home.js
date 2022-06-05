@@ -7,8 +7,7 @@ export default {
             valor: null,
             pagamento: [],
             parcela: null,
-            todos_especialidade: [],
-            pre_especialidade: [],
+            todos_especialidade: [], 
 
             erro_especialidade: [],
             erro_valor: [],
@@ -42,11 +41,10 @@ export default {
                 this.erro_pagamento.push('O pagamento é obrigatório.');
                 this.erro.push('erro');
             }
-            if (!this.parcela) {
-
-                this.erro_parcela.push('O parcelamento é obrigatório.');
-                this.erro.push('erro');
-            }
+           // if (!this.parcela) { 
+             //    this.erro_parcela.push('O parcelamento é obrigatório.');
+             //   this.erro.push('erro');
+           // }
 
             if (!this.valor) {
                 this.erro_valor.push('O Valor é obrigatório.');
@@ -65,8 +63,8 @@ export default {
             if (!this.erro.length) {
                 globalThis.especialidade = this.especialidade,
                     globalThis.valor = this.valor,
-                  globalThis.pagamento = this.pagamento, 
-                globalThis.parcela = this.parcela,
+                    globalThis.pagamento = this.pagamento,
+                    globalThis.parcela = this.parcela,
 
 
                     window.location.href = "#/finalizar"
@@ -129,13 +127,10 @@ export default {
         this.especialidades()
 
         this.especialidade = globalThis.especialidade || ''
-        if(globalThis.especialidade){
-            
+        if (globalThis.especialidade) {
             this.valor = globalThis.valor
-        this.pre_especialidade = globalThis.pagamento || []
-
-        var kim =  globalThis.pagamento
-       this.pagamento = kim.toString().split(/[.,!,?,;,...]/) 
+            var kim = globalThis.pagamento
+            this.pagamento = kim.toString().split(/[.,!,?,;,...]/)
         }
 
 

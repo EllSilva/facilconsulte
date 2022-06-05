@@ -1,9 +1,10 @@
 <div>
     <div class="jms-icon">
+        .
     </div>
     <div class="tela">
         <div class="card-body">
-            <h1 class="titulo">Sobre o profisional</h1>
+            <h1 class="titulo display-5">Sobre o profissional</h1>
 
         </div>
         <div class="card-body">
@@ -18,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="card-body">
                         <div class="mb-4">
-                            <label for="nomeX" class="form-label">Nome Completo</label>
+                            <label for="nomeX" class="form-label">Nome Completo*</label>
                             <input type="text" class="form-control imput" v-model="nome" id="nomeX"
                                 placeholder="Digite o nome completo">
                                 
@@ -27,10 +28,14 @@
                                     <div class="p" v-for="error in erro_nome">{{ error }}</div>
                                 </div>
                                 </p>
+
+                                
+
+
                         </div>
 
                         <div class="mb-4 col-sm-8">
-                            <label for="cpfx" class="form-label">CPF</label>
+                            <label for="cpfx" class="form-label">CPF*</label>
                             <input type="text" class="form-control imput" v-model="cpf" id="cpfx" v-mask="'###.###.###-##'"
                              @blur="validacpf" placeholder="Digite um CPF">
                                 <p v-if="erro_cpf.length"> 
@@ -42,8 +47,8 @@
                         </div>
 
                         <div class="mb-4 col-sm-8">
-                            <label for="exampleFormControlInput1" class="form-label">Numero de celular</label>
-                            <input type="text" class="form-control imput" v-model="telefone" v-mask="'(##) # ####-####,'"
+                            <label for="exampleFormControlInput1" class="form-label">Numero de celular*</label>
+                            <input type="text" class="form-control imput" v-model="telefone" v-mask="'(##) # ####-####'"
                                 id="exampleFormControlInput1" placeholder="(00) 0 0000-0000">
                                
                                 <p v-if="erro_tell.length"> 
@@ -57,7 +62,7 @@
                         <div class="row">
                             <div class="col-6 col-sm-6">
                                 <div class="mb-4">
-                                    <label for="est" class="form-label">Estado</label>
+                                    <label for="est" class="form-label">Estado*</label>
                                     <select class="form-select imput" v-model="selet_estado" @change="escolher(event.target.value)">
                                         <option disabled value="" >Selecione</option>
                                         <option v-for="(option, index) in todos_estado" :value="option.id">
@@ -76,7 +81,7 @@
 
                             <div class="col-6 col-sm-6">
                                 <div class="mb-4">
-                                    <label for="cidade" class="form-label">Cidade</label>
+                                    <label for="cidade" class="form-label">Cidade*</label>
                                     <select class="form-select imput" v-model="cidade"
                                         aria-label="Default select example">
                                         <option  disabled value="">Selecione</option>
@@ -95,7 +100,7 @@
                         </div>
 
                         <div class="row topxx">
-                            <div class="col-12 col-sm-10 ">
+                            <div class="col-9 col-sm-10 ">
                                 <div class="mb-3">
                                     <div class="progress">
                                         <div class="progress-bar bg_jms" role="progressbar" style="width: 50%;"
@@ -103,7 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-2    ">
+                            <div class="col-3 col-sm-2">
                                 <div class="mb-3 titulo">
                                     1 de 2
                                 </div>

@@ -8,7 +8,7 @@ export default {
             telefone: null,
             estado: "",
             selet_estado: "",
-            cidade: null, 
+            cidade: null,
             todos_estado: [],
             todos_cidade: [],
 
@@ -26,22 +26,16 @@ export default {
         }
     },
 
+    computed: {
+        
+      },
+
     methods: {
 
-        escolher(elementos) {
-            let nomesCertos = []
-
-            this.todos_estado.filter(elemento => {
-                if (elementos == elemento.id) {
-                    nomesCertos.push(elemento.nome);
-                    this.estado = elemento.nome
-                }
-            })
-
-            this.cidades()
-        },
 
         async profisional(e) {
+
+
             this.erro_nome = [];
             this.erro_cpf = [];
             this.erro_tell = [];
@@ -49,11 +43,7 @@ export default {
             this.erro_cidade = [];
             this.erro = [];
 
-            if (!this.nome) {
-                this.erro_nome.push('O nome é obrigatório.');
-                this.erro.push('erro');
-            }
-
+           
             if (!this.cpf) {
                 this.erro_cpf.push('O cpf é obrigatório.');
                 this.erro.push('erro');
@@ -72,8 +62,22 @@ export default {
                 this.erro_cidade.push('O cidade é obrigatório.');
                 this.erro.push('erro');
             }
-
-
+ 
+            if (!this.nome) {
+                this.erro_nome.push('O nome é obrigatório.');
+                this.erro.push('erro');
+            }
+            
+            else if (this.nome.length < 4) {
+                this.erro_nome.push('Por favor insira um nome mais longo');
+                this.erro.push('erro');
+            } 
+            else if (this.nome.length > 48) {
+                this.erro_nome.push('O maximo de caracteres é 48');
+                this.erro.push('erro');
+            } else {
+               
+            }
 
             if (!this.erro.length) {
                 globalThis.nome = this.nome,
@@ -90,6 +94,18 @@ export default {
 
         },
 
+        escolher(elementos) {
+            let nomesCertos = []
+
+            this.todos_estado.filter(elemento => {
+                if (elementos == elemento.id) {
+                    nomesCertos.push(elemento.nome);
+                    this.estado = elemento.nome
+                }
+            })
+
+            this.cidades()
+        },
 
         estados() {
             axios.get(`https://api-teste-front-end-fc.herokuapp.com/estados`)
@@ -105,7 +121,7 @@ export default {
                     error
                 )
         },
- 
+
 
         cidades() {
             axios.get(`https://api-teste-front-end-fc.herokuapp.com/cidades?estadoId=` + this.selet_estado)
@@ -123,7 +139,7 @@ export default {
         },
 
         validacpf() {
-           var verCpf = this.cpf.replace(/[^\d]+/g, '')
+            var verCpf = this.cpf.replace(/[^\d]+/g, '')
 
             axios.get(`https://api-teste-front-end-fc.herokuapp.com/profissionais?cpf=` + verCpf)
                 .then(response => {
@@ -131,17 +147,17 @@ export default {
                     let config = response.data
                     this.erro_cpf2 = ""
                     for (var i = 0; i < config.length; i++) {
-                   
+
                         var cpfTexte = config[i].cpf
-                       
-                        if (cpfTexte === verCpf) { 
+
+                        if (cpfTexte === verCpf) {
                             this.erro_cpf2 = "CPF já cadastrado"
-                        }  
-                       
+                        }
+
                     }
                 }
                 )
-                .catch(error => 
+                .catch(error =>
                     error
                 )
         },
@@ -169,6 +185,7 @@ export default {
     },
 
     async mounted() {
+        
         this.estados()
         this.cidades()
         this.nome = globalThis.nome,
